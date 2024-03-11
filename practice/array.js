@@ -1,0 +1,2 @@
+//Membuat objek dalam array
+
