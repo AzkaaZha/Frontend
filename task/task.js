@@ -9,10 +9,6 @@ const users = [{
   age: 20,
   major: "Informatics",
 },{
-  name: "Faris",
-  age: 21,
-  major: "Statistic",
-},{
   name: "Isfa",
   age: 20,
   major: "Math",
@@ -20,6 +16,10 @@ const users = [{
   name: "Nurul",
   age: 21,
   major: "English",
+},{
+  name: "Faris",
+  age: 21,
+  major: "Statistic",
 },{
   name: "Rizky",
   age: 21,
@@ -50,13 +50,8 @@ const all = () => {
 
 const store = (newUser) => {
   users.push(newUser);
+  all();
 }
-
-store({ 
-  name: "Sabiq",
-  age: 20,
-  major: "Informatics",
-});
 
 /**
  * TODO 4.
@@ -64,15 +59,10 @@ store({
  * Hint: re-assign array.
  * Note: Ubah function menggunakan arrow function.
  */
-const update = (index, editedUser) => {
-  users[index] = editedUser;
+const update = (id, editedUser) => {
+  users[id] = editedUser;
+  all();
 }
-
-update(1, {
-  name: "Isfhani Ghiyath",
-  age: 23,
-  major: "English",
-});
 
 /**
  * TODO 5.
@@ -80,8 +70,9 @@ update(1, {
  * Hint: Gunakan method splice.
  * Note: Ubah function menggunakan arrow function.
  */
-const destroy = (id) => {
-  users.splice(id, 1);
+const destroy = (index) => {
+  users.splice(index, 1);
+  all();
 }
 
 /**
