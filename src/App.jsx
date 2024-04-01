@@ -1,14 +1,12 @@
-import Header from './components/Header'
-import Main from './components/Main'
-import Footer from './components/Footer'
+//Import Halaman 
+import Home from "./pages/Home"
+
 
 function App() {
 
   return (
     <>
-      <Header />
-      <Main />
-      <Footer />
+      <Home />
     </>
   )
 }

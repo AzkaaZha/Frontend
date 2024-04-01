@@ -1,0 +1,64 @@
+/* Small Screen */
+.header {
+  width : 100%;
+  background-color: rgb(25, 3, 104);
+  height: auto;
+  background-size: 100%;
+  }
+
+.container {
+    padding: 1rem;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar__brand {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+  
+  .navbar__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-size: 17px;
+  }
+  
+  .navbar__item {
+    margin-bottom: 1rem;
+  }
+  
+  /* Medium Screen */
+  @media (min-width: 768px) {
+    .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .navbar__brand {
+      margin-bottom: 0;
+    }
+  
+    .navbar__list {
+      flex-direction: row;
+    }
+  
+    .navbar__item {
+      margin: 0 1rem;
+    }
+  }
+  
+  /* Large Screen */
+  @media (min-width: 992px) {
+    /* 
+     * Nothing TODO HERE.
+     * We haven't styling Navbar.
+     */
+  }
