@@ -18,11 +18,6 @@
     flex-direction: column;
   }
   
-  .navbar__brand {
-    font-size: 2.4rem;
-    margin: 0;
-  }
-  
   .navbar__list {
     display: flex;
     flex-direction: column;
@@ -34,6 +29,9 @@
     margin-bottom: 1rem;
   }
   
+  .navbar__logo {
+    width: 300px;
+  }
   /* Medium Screen */
   @media (min-width: 768px) {
     .navbar {

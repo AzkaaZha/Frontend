@@ -6,8 +6,9 @@ function Navbar() {
             <div className={styles.container}>
                 <nav className={styles.navbar}>
                     <div>
-                        <h1 className={styles.navbar__brand}>Movie App</h1>
+                    <img className={styles.navbar__logo} src="https://e.top4top.io/p_30403tpuj1.png" alt="logo" />
                     </div>
+             
                     <div>
                         <ul className={styles.navbar__list}>
                             <li className={styles.navbar__item}>Home</li>
