@@ -6,6 +6,8 @@ import Alert from '../Alert/Alert';
 
 function Form(props) {
 
+    const { movies, setMovies } = props;
+
     const [formData, setFormData] = useState({
         title:"",
         date:"",
@@ -20,7 +22,6 @@ function Form(props) {
         genre : false
     })
 
-    const { movies, setMovies } = props;
     const { title, date, poster, genre } = formData;
             
     function validate() {
