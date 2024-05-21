@@ -6,67 +6,69 @@ import Alert from '../Alert/Alert';
 
 function Form(props) {
 
-    const [title, setTitle] = useState('');
-    const [date, setDate] = useState('');
-    const [poster, setPoster] = useState('');
-    const [genre, setGenre] = useState('');
-
-    const [isTitleError, setIsTitleError] = useState(false);
-    const [isDateError, setIsDateError] = useState(false);
-    const [isPosterError, setIsPosterError] = useState(false);
-    const [isGenreError, setIsGenreError] = useState(false);
+    const [formData, setFormData] = useState({
+        title:"",
+        date:"",
+        poster:"",
+        genre:""
+    });
+    
+    const [errors, setErrors] = useState({
+        title : false,
+        date : false,
+        poster : false,
+        genre : false
+    })
 
     const { movies, setMovies } = props;
+    const { title, date, poster, genre } = formData;
+            
+    function validate() {
+        const newErrors = {
+            title: title === '',
+            date: date === '',
+            poster: poster === '',
+            genre: genre === ''
+        };
 
-    function handleTitle(e) {
-        setTitle(e.target.value);
+        setErrors(newErrors);
+
+        return !Object.values(newErrors).some(error => error);
     }
-    function handleDate(e) {
-        setDate(e.target.value);
+
+    function addMovie () {
+        const movie = {
+            id: nanoid(),
+            title: title,
+            year: date,
+            genre: genre,
+            poster: poster
+        };
+
+        setMovies([...movies, movie]);
     }
-    function handlePoster(e) {
-        setPoster(e.target.value);
-    }
-    function handleGenre(e) {
-        setGenre(e.target.value);
-    }
+
     function handleSubmit(e) {
         e.preventDefault();
-        if (title === '') {
-            setIsTitleError(true);
-        }
-        else if (date === '') {
-            setIsDateError(true);
-        }
-        else if (poster === '') {
-            setIsPosterError(true);
-        }
-        else if (genre === '') {
-            setIsGenreError(true);
-        }
-        else {
-            const movie = {
-                id: nanoid(),
-                title: title,
-                year: date,
-                type: 'Movie',
-                genre: genre,
-                poster: poster
-            };
+        validate() && addMovie()
 
-            setMovies([...movies, movie]);
-            setIsTitleError(false);
-            setIsDateError(false);
-            setIsPosterError(false);
-            setIsGenreError(false);
-
-            setTitle('');
-            setDate('');
-            setPoster('');
-            setGenre('');
-        }
+        setFormData({
+            title:"",
+            date:"",
+            poster:"",
+            genre:""
+        });
     }
 
+    function handleChange(e) {
+        const {name, value} = e.target;
+
+        setFormData({
+            ...formData,
+            [name]: value,
+        })
+    }
+        
     return (
         <div className={styles.container}>
             <section className={styles.form}>
@@ -84,15 +86,17 @@ function Form(props) {
                             type="text"
                             placeholder="Title"
                             value={title}
-                            onChange={handleTitle}
+                            name="title"
+                            onChange={handleChange}
                             className={styles.form__input} />
-                        {isTitleError && <Alert>Title wajib diisi</Alert>}
+                        {errors.title && <Alert>Title wajib diisi</Alert>}
                         <br />
                         <label className={styles.form__label}>Genre</label><br />
                         <select
                             id="genre"
                             value={genre}
-                            onChange={handleGenre}
+                            name="genre"
+                            onChange={handleChange}
                             className={styles.form__input}>
                             <option value="">Select Genre</option>
                             <option value="Action">Action</option>
@@ -102,26 +106,28 @@ function Form(props) {
                             <option value="Romance">Romance</option>
                             <option value="Komedi">Komedi</option>
                         </select>
-                        {isGenreError && <Alert>Genre wajib diisi</Alert>}
+                        {errors.genre && <Alert>Genre wajib diisi</Alert>}
                         <br />
                         <label className={styles.form__label}>Release Date</label><br />
                         <input 
                             id="date"
                             type="date"
+                            name="date"
                             value={date}
-                            onChange={handleDate}
+                            onChange={handleChange}
                             className={styles.form__input} />
-                        {isDateError && <Alert>Release Date wajib diisi</Alert>}
+                        {errors.date && <Alert>Release Date wajib diisi</Alert>}
                         <br />
                         <label className={styles.form__label}>Poster</label><br />
                         <input 
                             id="poster"
                             type="url"
+                            name="poster"
                             placeholder="Poster URL"
                             value={poster}
-                            onChange={handlePoster}
+                            onChange={handleChange}
                             className={styles.form__input} />
-                        {isPosterError && <Alert>Poster wajib diisi</Alert>}  
+                        {errors.poster && <Alert>Poster wajib diisi</Alert>}  
                         <br />
                         <button className={styles.form__button}>Submit</button>
                     </form>
