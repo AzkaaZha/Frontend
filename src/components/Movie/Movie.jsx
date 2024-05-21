@@ -13,6 +13,7 @@ function Movie(props) {
                 alt={movie.tittle} 
             />
             <h3 className={styles.movie__title}>{movie.title}</h3>
+            <p className={styles.movie__genre}>{movie.genre}</p>
             <p className={styles.movie__date}>{movie.year}</p>
         </div>
     );

@@ -3,15 +3,20 @@ import Hero from "../components/Hero/Hero";
 import Navbar from "../components/Navbar/Navbar";
 import Movies from "../components/Movies/Movies";
 import Form from "../components/Form/Form";
+import { useState } from "react";
+import data from "../utils/constants/data";
 
 function Home() {
+
+    const [movies, setMovies] = useState(data);
+
     return (
         <div>
             <Navbar />
             <main>
-               <Hero />
-               <Movies />
-               <Form />
+                <Hero />
+                <Movies movies={movies} setMovies={setMovies} />
+                <Form movies={movies} setMovies={setMovies} />
             </main>
             <Footer />
         </div>

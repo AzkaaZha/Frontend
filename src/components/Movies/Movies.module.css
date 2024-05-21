@@ -10,7 +10,7 @@
   }
 
   .movies__title {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     font-size: 2rem;
     color: rgb(25, 3, 104);
   }
