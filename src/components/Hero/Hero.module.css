@@ -42,7 +42,7 @@
   }
   
   .hero__image {
-    margin-left: 3rem;
+    margin-left: 2rem;
     max-width: 100%;
     height: auto;
     border-radius: 25px;
@@ -60,7 +60,7 @@
   @media (min-width: 992px) {
     .container {
       max-width: 1200px;
-      margin: 3rem auto;
+      margin: 3rem 4rem;
     }
   
     .hero {
@@ -72,10 +72,10 @@
     }
   
     .hero__left {
-      flex-basis: 40%;
+      flex-basis: 80%;
     }
   
     .hero__right {
-      flex-basis: 60%;
+      flex-basis: 40%;
     }
   }
