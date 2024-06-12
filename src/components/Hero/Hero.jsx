@@ -1,5 +1,12 @@
-import styles from './Hero.module.css';
+import { 
+    StyledHero,
+    StyledHeroLeft,
+    StyledHeroRight
+} from '../Hero/Hero.styled';
 import { useState, useEffect } from 'react';
+import Button from '../ui/Button/Button';
+import { Heading, SubHeading, Paragraph } from '../ui/Typography/Typography';
+import Image from '../ui/Media/Media';
 
 function Hero() {
 
@@ -18,22 +25,21 @@ function Hero() {
     } , []);
 
     return (
-        <div className={styles.container}>
-            <section className={styles.hero}>
-                <div className={styles.hero__left}>
-                    <h1 className={styles.hero__title}>{movie.Title}</h1>
-                    <h3 className={styles.hero__genre}>Genre : {movie.Genre}</h3>
-                    <p className={styles.hero__description}>{movie.Plot}
-                    </p>
-                    <button className={styles.hero__button}>Watch</button>
-                </div>
-                <div className={styles.hero__right}>
-                    <img
-                    className={styles.hero__image} 
+        <StyledHero>
+            <section>
+                <StyledHeroLeft>
+                    <Heading>{movie.Title}</Heading>
+                    <SubHeading>Genre : {movie.Genre}</SubHeading>
+                    <Paragraph>{movie.Plot}
+                    </Paragraph>
+                    <Button size="md" variant="primary">Watch Now</Button>
+                </StyledHeroLeft>
+                <StyledHeroRight>
+                    <Image
                     src={movie.Poster} alt={movie.Title} />
-                </div>
+                </StyledHeroRight>
             </section>
-        </div>
+        </StyledHero>
     );
 }
 

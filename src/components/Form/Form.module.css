@@ -14,39 +14,6 @@
     margin-bottom: 1rem;
   }
   
-  .form__title {
-    color: rgb(25, 3, 104);
-    margin-bottom: 1rem;
-    font-size: 2rem;
-  }
-
-  .form__label {
-    color: rgb(25, 3, 104);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    text-align: left;
-  }
-  
-  .form__input {
-    padding: 0.8rem;
-    border: 1px solid #64748b;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    font-family: 'Poppins', sans-serif;
-    width: 70%;
-    color: rgb(25, 3, 104);
-  }
-
-  .form__button {
-    padding: 0.8rem 4rem;
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(49, 21, 151);
-    color: #fff;
-    margin-top: 1rem;
-    font-family: 'Poppins', sans-serif;
-  }
-  
   .form__image {
     margin-left: 10rem;
     max-width: 50%;

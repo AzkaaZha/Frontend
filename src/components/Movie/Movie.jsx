@@ -1,21 +1,21 @@
 /* eslint-disable react/prop-types */
-import styles from "./Movie.module.css";
+import StyledMovie from "./Movie.styled";
+import Image from "../ui/Media/Media";
 
 function Movie(props) {
 
     const { movie } = props;
 
     return (
-        <div className={styles.movie}>
-            <img 
-                className={styles.movie__image}
+        <StyledMovie>
+            <Image
                 src={movie.poster} 
                 alt={movie.tittle} 
             />
-            <h3 className={styles.movie__title}>{movie.title}</h3>
-            <p className={styles.movie__genre}>{movie.genre}</p>
-            <p className={styles.movie__date}>{movie.year}</p>
-        </div>
+            <h3>{movie.title}</h3>
+            <p>{movie.genre}</p>
+            <p>{movie.year}</p>
+        </StyledMovie>
     );
 }
 
