@@ -4,7 +4,7 @@ const StyledNavbar = styled.div`
     background-color: rgb(25, 3, 104);
     height: auto;
     background-size: 100%;
-    padding: 1rem;
+    padding: 1rem 8rem;
     color: #fff;
     font-size: 14px;
 
@@ -34,8 +34,8 @@ const StyledNavbar = styled.div`
         font-size: 16px; 
     }
 
-    a :hover {
-        color: #64748b;
+    a:hover {
+        color: blue;
     }
 
     @media (min-width: 768px) {
@@ -55,7 +55,7 @@ const StyledNavbar = styled.div`
 
         li {
             margin-bottom: 0;
-            margin-left: 1rem;
+            margin-left: 2rem;
         }
     }
 `;

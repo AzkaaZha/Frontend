@@ -6,6 +6,7 @@ const Button = styled.button`
     color : #fff;
     cursor: pointer;
     font-family: Montserrat, sans-serif;
+    text-decoration: none;
 
     //Default Padding & Font Size
     font-size: ${(props)=> props.theme.sizes.md.fontSize};

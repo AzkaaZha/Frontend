@@ -10,6 +10,7 @@ import { ThemeProvider } from "styled-components"
 import theme from "./utils/constants/theme"
 import GlobalStyle from "./components/GlobalStyle/GlobalStyle"
 
+
 function App() {
 
   return (

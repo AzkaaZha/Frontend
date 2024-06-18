@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { nanoid } from 'nanoid';
-import styles from './Form.module.css';
 import { useState } from 'react';
 import Alert from '../Alert/Alert';
 import { StyledForm, StyledLabel, StyledInput } from '../ui/Form/Form';
 import { Heading } from '../ui/Typography/Typography';
 import Button from '../ui/Button/Button';
+import { FormRight, FormStyled, FormLeft } from './Form.styled';
 
 function Form(props) {
 
@@ -74,14 +74,13 @@ function Form(props) {
     }
         
     return (
-        <div className={styles.container}>
-            <section className={styles.form}>
-                <div className={styles.form__left}>
+        <FormStyled>
+            <section>
+                <FormLeft>
                     <img
-                    className={styles.form__image} 
                     src="https://img.freepik.com/free-vector/cinema-realistic-poster-with-illuminated-bucket-popcorn-drink-3d-glasses-reel-tickets-blue-background-with-tapes-vector-illustration_1284-77070.jpg" alt="placeholder" />
-                </div>
-                <div className={styles.form__right}>
+                </FormLeft>
+                <FormRight>
                     <Heading>Add Movie</Heading>
                     <StyledForm onSubmit={handleSubmit}>
                         <StyledLabel>Title</StyledLabel>
@@ -131,9 +130,9 @@ function Form(props) {
                         <br />
                         <Button size="md" variant="primary">Submit</Button>
                     </StyledForm>
-                </div>
+                </FormRight>
             </section>
-        </div>
+        </FormStyled>
     );
 }
 

@@ -1,7 +1,7 @@
-import styled from "styled-components"; 
+import styled from "styled-components";
 
-export const StyledHero = styled.div`
-    margin-bottom: 1rem;
+export const FormStyled = styled.form`
+    margin: 1rem;
 
     section {
         display: flex;
@@ -11,8 +11,8 @@ export const StyledHero = styled.div`
 
     @media (min-width: 992px) {
         max-width: 1200px;
-        margin: 4rem 1rem;
-        
+        margin: 7rem auto;
+
         section {
             margin: 0 1rem;
             flex-direction: row;
@@ -23,18 +23,28 @@ export const StyledHero = styled.div`
     }
 `;
 
-export const StyledHeroLeft = styled.div`
-    margin-bottom: 1rem;
+export const FormLeft = styled.div`
+    img {
+        margin-left: 10rem;
+        max-width: 50%;
+        height: auto;
+        border-radius: 25px; 
+    }
 
     @media (min-width: 992px) {
-        flex-basis: 50%;
+        flex-basis: 60%;
     }
 `;
 
-export const StyledHeroRight = styled.div`
+export const FormRight = styled.div`
+    margin-bottom: 1rem;
+    
+    a{
+        text-decoration: none;
+    }
 
     @media (min-width: 992px) {
-        flex-basis: 40%;
+        flex-basis: 60%;
     }
 `;
 
