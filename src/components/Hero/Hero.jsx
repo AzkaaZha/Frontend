@@ -8,18 +8,17 @@ import Button from '../ui/Button/Button';
 import { Heading, SubHeading, Paragraph } from '../ui/Typography/Typography';
 import Image from '../ui/Media/Media';
 import axios from 'axios';
+import ENDPOINTS from '../../utils/constants/endpoint';
 
 function Hero() {
 
     const [movie, setMovie] = useState("");
-    const API_KEY = import.meta.env.VITE_API_KEY;
     const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
     const idTrailer = movie && movie.videos.results[0].key;
 
     useEffect(() => {
         async function fetchTrendingMovies() {
-            const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
-            const response = await axios(url)
+            const response = await axios(ENDPOINTS.HERO)
             const firstMovie = response.data.results[0];
             return firstMovie;
         }
@@ -29,9 +28,7 @@ function Hero() {
             const trendingMovie = await fetchTrendingMovies();
             const id = trendingMovie.id;
 
-            const params = `?api_key=${API_KEY}&append_to_response=videos`;
-            const url = `https://api.themoviedb.org/3/movie/${id}${params}`;
-            const response = await axios(url);
+            const response = await axios(ENDPOINTS.DETAIL(id));
 
             setMovie(response.data);
         }

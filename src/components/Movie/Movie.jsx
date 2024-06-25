@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import StyledMovie from "./Movie.styled";
 import Image from "../ui/Media/Media";
+import { Link } from "react-router-dom";
 
 function Movie(props) {
 
@@ -15,7 +16,9 @@ function Movie(props) {
                 src={movie.poster || tmdbImage} 
                 alt={movie.tittle} 
             />
-            <h3>{movie.title}</h3>
+            <Link to={`/movie/${movie.id}`}>
+                <h3>{movie.title}</h3>
+            </Link>
             <p>{movie.genre}</p>
             <p>{year}</p>
         </StyledMovie>
