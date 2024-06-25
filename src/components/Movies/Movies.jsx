@@ -18,7 +18,7 @@ function Movies(props) {
                 </div>
             </section>
         </div>
-    );
+    );  
 }
 
 export default Movies;

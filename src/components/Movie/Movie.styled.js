@@ -29,6 +29,10 @@ const StyledMovie = styled.div`
         margin-bottom: 0.5rem;
     }
 
+    a{
+        text-decoration: none;
+    }
+
     @media (min-width: 768px) {
         flex-basis: 50%;
     }
