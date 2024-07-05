@@ -2,10 +2,14 @@
 /* eslint-disable react/prop-types */
 import Movie from '../Movie/Movie';
 import styles from './Movies.module.css';
+import { useContext } from 'react'; 
+import MoviesContext from '../../context/MoviesContext';
 
 function Movies(props) {
 
-    const { movies, title } = props;
+    const { title = "Latest Movies" } = props;
+    const { movies } = useContext(MoviesContext);
+    console.log("Movies dari context:", movies);
 
     return (
         <div className={styles.container}>

@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
 import ENDPOINTS from "../../utils/constants/endpoint";
+import { useContext } from "react";
+import MoviesContext from "../../context/MoviesContext";
 
 function TopRatedMovie() {
 
-  const [movies, setMovies] = useState([]);
+  const { setMovies } = useContext(MoviesContext);
 
-  useEffect(() => {
+  useEffect(function() {
     async function fetchTopRatedMovie() {
 
       const response = await axios(ENDPOINTS.TOPRATED);
@@ -16,11 +18,12 @@ function TopRatedMovie() {
     }
 
     fetchTopRatedMovie();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   } ,[]);
   return (
     <>
       <Hero />
-      <Movies movies={movies}  title="Top Rated Movies"/>
+      <Movies title="Top Rated Movies"/>
     </>
   )
 }

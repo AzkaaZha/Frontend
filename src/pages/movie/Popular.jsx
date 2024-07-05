@@ -1,26 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Movies from "../../components/Movies/Movies";
 import Hero from "../../components/Hero/Hero";
 import ENDPOINTS from "../../utils/constants/endpoint"
+import { useContext } from "react";
+import MoviesContext from "../../context/MoviesContext";
 
 function PopularMovie() {
 
-  const [movies, setMovies] = useState([]);
+  const { setMovies } = useContext(MoviesContext);
 
-  useEffect(() => {
+  useEffect(function() {
     async function fetchPopularMovie() {
-      
-      const response = await axios(ENDPOINTS.POPULAR);
-      setMovies(response.data.results);
+      try {
+        const response = await axios.get(ENDPOINTS.POPULAR);
+        console.log("Data dari API:", response.data.results); // Log data dari API
+        setMovies(response.data.results);
+      } catch (error) {
+        console.error("Error fetching popular movies:", error);
+      }
     }
 
     fetchPopularMovie();
-  } ,[]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <Hero />
-      <Movies movies={movies}  title="Popular Movies"/>
+      <Movies title="Popular Movies"/>
     </>
   )
 }

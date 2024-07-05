@@ -6,10 +6,15 @@ import { StyledForm, StyledLabel, StyledInput } from '../ui/Form/Form';
 import { Heading } from '../ui/Typography/Typography';
 import Button from '../ui/Button/Button';
 import { FormRight, FormStyled, FormLeft } from './Form.styled';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import MoviesContext from '../../context/MoviesContext';
 
-function Form(props) {
+function Form() {
 
-    const { movies, setMovies } = props;
+    const navigation = useNavigate();
+
+    const { movies, setMovies } = useContext(MoviesContext);
 
     const [formData, setFormData] = useState({
         title:"",
@@ -72,6 +77,8 @@ function Form(props) {
             [name]: value,
         })
     }
+
+    navigation("/");
         
     return (
         <FormStyled>
