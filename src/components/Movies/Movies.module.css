@@ -1,0 +1,52 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .movies {
+    margin: 5rem 0;
+    text-align: center;
+  }
+
+  .movies__title {
+    margin-bottom: 0rem;
+    font-size: 2rem;
+    color: rgb(25, 3, 104);
+  }
+
+  .movie__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movie__button {
+    padding: 0.8rem 4rem;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(49, 21, 151);
+    color: #fff;
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Medium Screen */
+  @media (min-width: 768px) {
+  .movie__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+  /* Large Screen */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 1800px;
+      margin: 5rem auto;
+    }
+  }
+
+  
