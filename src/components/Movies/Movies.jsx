@@ -9,7 +9,6 @@ function Movies(props) {
 
     const { title = "Latest Movies" } = props;
     const { movies } = useContext(MoviesContext);
-    console.log("Movies dari context:", movies);
 
     return (
         <div className={styles.container}>

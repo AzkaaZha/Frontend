@@ -16,11 +16,11 @@ import MoviesContext from "./context/MoviesContext"
 
 function App() {
 
-  const [movies, setmovies] = useState(data)
+  const [movies, setMovies] = useState(data)
 
   const contextValue = {
     movies,
-    setmovies,  
+    setMovies,  
   };
 
   return (
@@ -30,7 +30,7 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route path="/movie/create" element={<CreateMovie movies={movies} setmovies={setmovies} />}></Route>
+              <Route path="/movie/create" element={<CreateMovie movies={movies} setmovies={setMovies} />}></Route>
               <Route path="/movie/popular" element={<PopularMovie />}></Route>
               <Route path="/movie/now" element={<NowPlayingMovie />}></Route>
               <Route path="/movie/top" element={<TopRatedMovie />}></Route> 
